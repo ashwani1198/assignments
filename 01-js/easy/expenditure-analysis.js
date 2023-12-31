@@ -46,7 +46,6 @@ const transaction = [
     id: 5,
     timestamp: 1656105600000,
     price: 25,
-    category: 'Clothing',
     itemName: 'Jeans',
   },
 ];
@@ -57,10 +56,13 @@ function calculateTotalSpentByCategory(transactions = transaction) {
   for (let i=0;i<transactions.length;i++){
     let current=transactions[i];
     if(!temp[current.category]){
+      console.log(temp[current.category]);
       temp[current.category]=current.price;
+      console.log(temp,"!temp");
     }
     else{
       temp[current.category]+=current.price;
+      console.log(temp);
     }
   }
   //Referred
@@ -70,4 +72,6 @@ function calculateTotalSpentByCategory(transactions = transaction) {
   return ans;
 }
 
-module.exports = calculateTotalSpentByCategory;
+// module.exports = calculateTotalSpentByCategory;
+
+console.log(calculateTotalSpentByCategory());
